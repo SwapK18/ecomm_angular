@@ -1,0 +1,122 @@
+<app-header></app-header>
+<app-top-navigation></app-top-navigation>
+<!-- page banner bredcrumb -->
+<div class="page-banner" style="background-image: url(assets/uploads/banner_product_category.jpg)">
+    <div class="inner">
+        <h1>Category: Men Accessories</h1>
+    </div>
+</div>
+<div class="page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h4>Filter By</h4>
+                <div id="left" class="span3">
+                    <ng-container>
+                        <div>
+                            <ng-container *ngFor="let item of arrOptions">
+                                <ng-container *ngFor="let key of getObjectKeys(item)">
+                                    <h5 class="filter-heading">{{ key }}</h5>
+                                    <ul class="filterList">
+                                        <li *ngFor="let value of item[key]">
+                                            <div class="form-check">
+                                                <label class="filter-lbl">
+                                                    <!-- <input type="checkbox" class="form-check-input" name="{{key}}" value="{{value.id}}" (click)="onSelFilter(value.name, value.id)" />&nbsp; {{value.name}} -->
+                                                    <input type="checkbox" class="form-check-input" name="{{ key }}"
+                                                        [value]="value.id" (change)="
+                                                            filterOpt($event)
+                                                        " />&nbsp;
+                                                    {{ value.name }}
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </ng-container>
+                            </ng-container>
+                        </div>
+                    </ng-container>
+                    <ng-container>
+                        <div style="margin-bottom: 50px">
+                            <h5 class="filter-heading">Price</h5>
+                            <!-- <input type="range" [min]="minMaxPriceVals.min" [max]="minMaxPriceVals.max" /> -->
+                            <div class="range" style="margin-top: 20px">
+                                <input type="range" [min]="minPriceVal" [max]="maxPriceVal" [step]="1" />
+                                <span>minMaxPriceVals.max Rs.</span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <!--  -->
+                <h3>All Products Under "Men Accessories"</h3>
+                <div class="product product-cat">
+                    <div class="row">
+                        <ng-container *ngFor="let prd of filteredProds; let i = index">
+                            <div class="col-md-4 item item-product-cat">
+                                <div class="inner">
+                                    <div class="thumb">
+                                        <!-- <div class="photo" style="background-image:url('assets/uploads/')"> -->
+                                        <div class="photo" [ngStyle]="{
+                                                background:
+                                                    ' url(assets/uploads/' +
+                                                    prd.photo +
+                                                    ') no-repeat 0 0',
+                                            }"></div>
+                                        <div class="overlay"></div>
+                                    </div>
+                                    <div class="text">
+                                        <h3>
+                                            <!-- <a [routerLink]="['/prdDetail', prd.product_id]">{{prd.prd_name}}</a> -->
+                                            <a routerLink="/prdDetail/{{
+                                                    prd.prod_id
+                                                }}" routerLinkActiveOptions="exact:false">{{ prd.prod_name }}</a>
+                                        </h3>
+                                        <h4>
+                                            <del>$ {{ prd.regular_price }}
+                                            </del>
+                                            $ {{ prd.spcl_offr_price }}
+                                        </h4>
+                                        <div class="rating"></div>
+                                        <p>
+                                            <a href="product.php?id=1"><i class="fa fa-shopping-cart"></i>
+                                                Add to Cart</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <!-- <ng-container>
+                            <div class="col-md-4 item item-product-cat">
+                                <div class="inner">
+                                    <div class="thumb">
+                                        <div class="photo" style="background-image:url('assets/uploads/')">
+                                        </div>
+                                        <div class="overlay"></div>
+                                    </div>
+                                    <div class="text">
+                                        <h3><a>itm.prd_name</a>
+                                        </h3>
+                                        <h4>
+                                            $itm.spcl_offr_price
+                                            <del>
+                                                $itm.regular_price </del>
+                                        </h4>
+                                        <div class="rating">
+                                        </div>
+                                        <p><a href="product.php?id=itm.product_id"><i class="fa fa-shopping-cart"></i>
+                                                Add to Cart</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </ng-container> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,94 @@
+<app-header></app-header>
+
+<div class="page-banner" style="background-color:#444;background-image: url(assets/uploads/banner_registration.jpg);">
+	<div class="inner">
+		<h1>Customer Registration</h1>
+	</div>
+</div>
+
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="user-content">
+					<form action="" method="post">
+						<input type="hidden" name="_csrf" value="99552a5592e32bfc8fdebaeecdb5a7b5">
+						<div class="row">
+							<div class="col-md-2"></div>
+							<div class="col-md-8">
+
+
+								<div class="col-md-6 form-group">
+									<label for="">Full Name *</label>
+									<input type="text" class="form-control" name="cust_name" value="">
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="">Company Name</label>
+									<input type="text" class="form-control" name="cust_cname" value="">
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="">Email Address *</label>
+									<input type="email" class="form-control" name="cust_email" value="">
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="">Phone Number *</label>
+									<input type="text" class="form-control" name="cust_phone" value="">
+								</div>
+								<div class="col-md-12 form-group">
+									<label for="">Address *</label>
+									<textarea name="cust_address" class="form-control" cols="30" rows="10"
+										style="height:70px;"></textarea>
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="">Country *</label>
+									<select name="cust_country" class="form-control select2 select2-hidden-accessible"
+										tabindex="-1" aria-hidden="true">
+										<option value="">Select country</option>
+										<option value="1">Afghanistan</option>
+										<option value="2">Albania</option>
+										<option value="3">Algeria</option>
+									</select><span class="select2 select2-container select2-container--default" dir="ltr"
+										style="width: 345px;"><span class="selection"><span
+												class="select2-selection select2-selection--single" role="combobox"
+												aria-haspopup="true" aria-expanded="false" tabindex="0"
+												aria-labelledby="select2-cust_country-wv-container"><span
+													class="select2-selection__rendered" id="select2-cust_country-wv-container"
+													title="Select country">Select country</span><span
+													class="select2-selection__arrow" role="presentation"><b
+														role="presentation"></b></span></span></span><span class="dropdown-wrapper"
+											aria-hidden="true"></span></span>
+								</div>
+
+								<div class="col-md-6 form-group">
+									<label for="">City *</label>
+									<input type="text" class="form-control" name="cust_city" value="">
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="">State *</label>
+									<input type="text" class="form-control" name="cust_state" value="">
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="">Zip Code *</label>
+									<input type="text" class="form-control" name="cust_zip" value="">
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="">Password *</label>
+									<input type="password" class="form-control" name="cust_password">
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="">Retype Password *</label>
+									<input type="password" class="form-control" name="cust_re_password">
+								</div>
+								<div class="col-md-6 form-group">
+									<label for=""></label>
+									<input type="submit" class="btn btn-danger" value="Register" name="form1">
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="page-banner" style="background-color:#444;background-image: url(assets/uploads/banner_login.jpg);">
+	<div class="inner">
+		<h1>Customer Login</h1>
+	</div>
+</div>
+
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="user-content">
+					<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+						<input type="hidden" name="_csrf" value="b93b24d0ccf1151afbbbdbde08e2923d">
+						<div class="row">
+							<div class="col-md-4"></div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="">Email Address *</label>
+									<input type="text" class="form-control" name="email" [(ngModel)]="form.email" required
+										#email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.errors }" />
+
+									<div *ngIf="email.errors && f.submitted" class="invalid-feedback">
+										Email is required!
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="">Password *</label>
+									<input type="password" class="form-control" name="password" [(ngModel)]="form.password"
+										required #password="ngModel"
+										[ngClass]="{ 'is-invalid': f.submitted && password.errors }" />
+
+									<div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+										<div *ngIf="password.errors['required']">Password is required</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for=""></label>
+									<input type="submit" name="login" value="Login" class="btn btn-block" />
+								</div>
+								<a href="forget-password.php" style="color:#e4144d;">Forget Password?</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-6 col-sm-12 flex">
+				<!-- Login with Google -->
+			</div>
+			<div class="col-sm-6 col-md-6 col-sm-12 flex">
+				<!-- Login with Facebook -->
+			</div>
+		</div>
+	</div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,54 @@
+<div class="product pt_70 pb_70" *ngIf="!errMsg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="headline" *ngFor="let el of settings;">
+                    <h2>{{el.featured_product_title}}</h2>
+                    <h3>{{el.featured_product_subtitle}}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="product-carousel">
+
+                    <div class="item" *ngFor="let el of feat_product;" let i=index;>
+                        <div class="thumb">
+                            <div class="photo" [style.background]="'url(/assets/uploads/' + el.prod_feature + ')'"></div>
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="text">
+                            <h3><a href="#">{{el.prod_name}}</a></h3>
+                            <h4>
+                                $ {{el.regular_price}}
+                                <del *ngIf="el.min_selling_price">
+                                    $ {{el.min_selling_price}}
+                                </del>
+                            </h4>
+                            <!-- <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star"></i>
+                            </div> -->
+
+                            <div class="out-of-stock" *ngIf="!el.stock || el.stock == null || el.stock <= 0">
+                                <div class="inner">
+                                    Out Of Stock
+                                </div>
+                            </div>
+                            <p *ngIf="el.stock || el.stock != null || el.stock > 0"><a href="product.php?id="><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="errMsg != undefined">
+                    {{errMsg.message}} You are not uthorized to access the data. Try login.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

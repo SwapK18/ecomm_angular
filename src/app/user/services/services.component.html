@@ -1,0 +1,13 @@
+<div class="service bg-gray">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4" *ngFor="let el of services;let i = index;">
+				<div class="item">
+					<div class="photo"><img src="assets/uploads/{{el.service_photo}}" width="150px" alt="{{el.service_title}}"></div>
+					<h3>{{el.service_title}}</h3>
+					<p>{{el.service_content}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

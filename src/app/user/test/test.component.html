@@ -1,0 +1,115 @@
+<app-header></app-header>
+
+<!-- page banner bredcrumb -->
+<div class="page-banner" style="background-image: url(assets/uploads/banner_product_category.jpg)">
+    <div class="inner">
+        <h1>Category: Men Accessories</h1>
+    </div>
+</div>
+<div class="page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h4>Filter By</h4>
+                <div id="left" class="span3">
+                    <ng-container>
+                        <div>
+                            <h5 class="filter-heading">item.key</h5>
+                            <ul class="filterList">
+                                <ng-container>
+                                    <li>
+                                        <div class="form-check">
+                                            <label class="filter-lbl">
+                                                <input type="checkbox" class="form-check-input" name="item.key" value="val" />&nbsp; val
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ng-container>
+                            </ul>
+                        </div>
+                    </ng-container>
+                    <ng-container>
+                        <div style="margin-bottom: 50px;">
+                            <h5 class="filter-heading">Price</h5>
+                            <!-- <input type="range" [min]="minMaxPriceVals.min" [max]="minMaxPriceVals.max" /> -->
+                            <div class='range' style="margin-top: 20px;">
+                                <input type="range" [min]="90" [max]="1200"
+                                    [step]="1" />
+                                <span>minMaxPriceVals.max Rs.</span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="col-md-9"><!--  -->
+                <h3>All Products Under "Men Accessories"</h3>
+                <div class="product product-cat">
+                    <div class="row">
+                        <ng-container>
+                            <div class="col-md-4 item item-product-cat">
+                                <div class="inner">
+                                    <div class="thumb">
+                                        <div class="photo"
+                                            style="background-image:url('assets/uploads/')">
+                                        </div>
+                                        <div class="overlay"></div>
+                                    </div>
+                                    <div class="text">
+                                        <h3>
+                                            <!-- <a [routerLink]="['/prdDetail', itm.product_id]">{{itm.prd_name}}</a> -->
+                                            <a routerLink='/prdDetail/1' routerLinkActiveOptions="exact:
+false">itm.prd_name</a>
+
+                                        </h3>
+                                        <h4>
+                                            $ itm.spcl_offr_price
+                                            <del>
+                                                $itm.regular_price </del>
+                                        </h4>
+                                        <div class="rating">
+                                        </div>
+                                        <p><a href="product.php?id=itm.product_id"><i
+                                                    class="fa fa-shopping-cart"></i>
+                                                Add to Cart</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </ng-container>
+                        <ng-container>
+                            <div class="col-md-4 item item-product-cat">
+                                <div class="inner">
+                                    <div class="thumb">
+                                        <div class="photo"
+                                            style="background-image:url('assets/uploads/')">
+                                        </div>
+                                        <div class="overlay"></div>
+                                    </div>
+                                    <div class="text">
+                                        <h3><a>itm.prd_name</a>
+                                        </h3>
+                                        <h4>
+                                            $itm.spcl_offr_price
+                                            <del>
+                                                $itm.regular_price </del>
+                                        </h4>
+                                        <div class="rating">
+                                        </div>
+                                        <p><a href="product.php?id=itm.product_id"><i
+                                                    class="fa fa-shopping-cart"></i>
+                                                Add to Cart</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

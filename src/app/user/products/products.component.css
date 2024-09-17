@@ -1,0 +1,59 @@
+ul.filterList {
+	list-style-type: none;
+	text-transform: capitalize;
+	padding: 9px 17px 9px 8px;
+}
+
+.filter-heading {
+	text-transform: capitalize;
+	margin-bottom: 10px;
+	border: #f24203;
+	background: #f24203;
+	color: #fff;
+	padding: 9px 17px 9px 8px;
+}
+
+label.filter-lbl {
+	text-transform:none;
+	line-height: 15px;
+}
+
+/* range slider */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.range input{
+	-webkit-appearance:none;
+	width:80%;
+	margin: 0 auto;
+	height:4px;
+	border-radius:5px;
+	background-color:#f2420396;
+	outline:none;
+}
+.range input::-webkit-slider-thumb{
+	-webkit-appearance:none;
+	width:20px;
+	height:20px;
+	border-radius:50%;
+	background-color:#f2420396;
+}
+.range span{
+	position:absolute;
+	margin-left:14px;
+	width:60px;
+	height:30px;
+	background-color:#222;
+	color:#fff;
+	border-radius:3px;
+	text-align:center;
+	line-height:30px;
+}
+.range span:before{
+	content:'';
+	position:absolute;
+	border-right:9px solid transparent;
+	border-left:9px solid transparent;
+	border-bottom:12px solid #222;
+	left:-10px;
+	top:50%;
+	transform:translateY(-50%) rotate(-90deg);
+}

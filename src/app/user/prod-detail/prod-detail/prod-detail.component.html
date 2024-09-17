@@ -1,0 +1,174 @@
+<app-header></app-header>
+<app-top-navigation></app-top-navigation>
+<!-- page banner bredcrumb -->
+<div class="page-banner" [style]="'background-image: url(assets/uploads/banner_product_category.jpg)'">
+	<div class="inner">
+		<h1>Category: Men Accessories</h1>
+	</div>
+</div>
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="product">
+					<div class="row">
+						<div class="col-md-5">
+							<div class="bx-wrapper" [style]="'max-width: 100%;'">
+								<div style="width:100%;height:500px"
+									[ngStyle]="{'background': ' url(assets/uploads/' + objPrd.featured_image  + ') no-repeat 0 0'}">
+								</div>
+							</div>
+							<div id="prod-pager">
+								<a data-slide-index="0" href="" class="active">
+									<div class="prod-pager-thumb"
+										[style]="'background-image: url(`assets/uploads/{{objPrd.featured_image}}`)'">
+									</div>
+								</a>
+								<a data-slide-index="1" href="">
+									<div class="prod-pager-thumb"
+										[style]="'background-image: url(`assets/uploads/product_photos/112.jpg`)'">
+									</div>
+								</a>
+								<a data-slide-index="2" href="">
+									<div class="prod-pager-thumb"
+										[style]="'background-image: url(`assets/uploads/product_photos/113.jpg`)'">
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="col-md-7">
+							<div class="p-title">
+								<h2>{{objPrd.product_name}}
+									<ng-container *ngFor="let el of objPrdVar" class="text-muted">
+										<span class="text-capitalize text-muted">({{el.varnts_name}})</span>
+									</ng-container>
+								</h2>
+							</div>
+							<div class="p-review">
+								<div class="rating">
+								</div>
+							</div>
+							<div class="p-short-des">
+								<p>
+								</p>
+								<p
+									[style]="'padding: 0px; margin-top: 0px; margin-bottom: 0px !important; line-height: 32px !important'">
+									<span id="productTitle" class="a-size-large product-title-word-break"
+										[style]="'text-rendering: optimizelegibility; word-break: break-word; line-height: 32px !important; font-family: Roboto;'">
+										{{objPrd.prod_description}}
+									</span>
+								</p>
+								<p></p>
+							</div>
+							<!-- <form [formGroup]="addToCart" (ngSubmit)="onSubmit(addToCart)"> -->
+							<form>
+								<div class="p-quantity">
+									<div class="row justify-content-md-center">
+										<div class="col-sm-12 col-md-5 col-lg-5"
+											*ngFor="let key of getObjectKeys(objPrd['variations'][0])">
+											<span class="text-capitalize">Select {{key}}</span> <br>
+											<div class="btn-group btn-group-toggle" data-toggle="buttons">
+												<label *ngFor="let vl of getObjectValues(objPrd['variations'][0], key);let i = index;" class="btn btn-secondary active" (click)="onSave(key, vl.var_name,objPrd.product_id)">
+													<!-- <input type="radio" [attr.data-var_id]="vl.var_id" checked="true" value="value.var_name" /> -->
+														<input type="radio" [name]="key" [attr.data-var_id]="vl.var_id" [value]="vl.var_name"  />
+													
+													<span class="text-capitalize font-weight-bold">{{vl.var_name}}</span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<ng-container *ngFor="let el of objPrdVar;">
+									<div class="p-price">
+										<span [style]="'font-size:14px;'">Product Price</span><br>
+										<span>
+											<del>${{el.regular_price}}</del>
+											${{el.spcl_offr_price}}</span>
+										<input type="hidden" [ngModel]="el.varnts_name" />
+										<input type="hidden" name="regularPrice" [value]="el.regular_price" />
+										<input type="hidden" name="specialPrice" [value]="el.spcl_offr_price" />
+
+									</div>
+								</ng-container>
+								<div class="p-quantity">
+									Quantity <br>
+									<input type="number" class="input-text qty" step="1" min="1" max="" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" />
+									<input type="hidden" name="variationName" [value]="finalCombination" />
+									<!-- <div *ngIf="addToCart.controls['p_qty'].invalid && (addToCart.controls['p_qty'].dirty || addToCart.controls['p_qty'].touched)" class="alert alert-danger">
+									</div> -->
+								</div>
+								<div class="btn-cart btn-cart1">
+									<input type="submit" value="Add to Cart" name="form_add_to_cart">
+								</div>
+							</form>
+
+							<div class="share">
+								Share This Product <br>
+								<div class="sharethis-inline-share-buttons"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active"><a href="#description"
+										aria-controls="description" role="tab" data-toggle="tab">Product Description</a>
+								</li>
+								<li role="presentation"><a href="#feature" aria-controls="feature" role="tab"
+										data-toggle="tab">Features</a></li>
+								<li role="presentation"><a href="#condition" aria-controls="condition" role="tab"
+										data-toggle="tab">Conditions</a></li>
+								<li role="presentation"><a href="#return_policy" aria-controls="return_policy"
+										role="tab" data-toggle="tab">Return Policy</a></li>
+								<!-- <li role="presentation"><a href="#review" aria-controls="review" role="tab" data-toggle="tab">Reviews</a></li> -->
+							</ul>
+
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane active" id="description"
+									[style]="'margin-top: -30px;'">
+									<p>
+									</p>
+									<p
+										[style]="'padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;'">
+										{{objPrd.product_description}}<br></p>
+									<p></p>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="feature" [style]="'margin-top: -30px;'">
+									<p>
+									</p>
+									{{objPrd.product_description}}
+									<p></p>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="return_policy" [style]="'margin-top: -30px;'">
+									<p>
+									</p>
+									<p>{{objPrd.product_return_policy}}<br></p>
+									<p></p>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="review" [style]="'margin-top: -30px;'">
+
+									<div class="review-form">
+										<h2>Reviews (0)</h2>
+										Review not found
+										<h2>Give a Review</h2>
+										<p class="error">
+											You must have to login to give a review <br>
+											<a href="login.php"
+												[style]="'color:red;text-decoration: underline;'">Login</a>
+										</p>
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<app-footer></app-footer>

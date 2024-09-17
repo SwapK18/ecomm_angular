@@ -1,0 +1,61 @@
+<div class="top">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="left">
+					<ul>
+						<li><i class="fa fa-phone"></i>{{contact_mobile}}</li>
+						<li><i class="fa fa-envelope-o"></i> {{contact_mail}}</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="right">
+					<ul>
+						<li *ngFor="let soc of allSocialDetails;">
+							<ng-template [ngIf]="soc.social_url">
+								<a href="{{soc.social_url}}">
+									<i class="{{soc.social_icon}}"></i>
+								</a>
+							</ng-template>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="header">
+	<div class="container">
+		<div class="row inner">
+			<div class="col-md-4 logo">
+				<a routerLink="/"><img src="assets/uploads/logo.png" alt="logo image"></a>
+			</div>
+
+			<div class="col-md-5 right">
+				<ul>
+					<span *ngIf="isLoggedIn === true; then thenBlock else elseBlock"></span>
+					<ng-template #thenBlock>
+						<li><a href="#" (click)="logout()"><i class="fa fa-sign-in"></i> Logout</a></li>
+					</ng-template>
+					<ng-template #elseBlock>
+						<li><a routerLink="user/login"><i class="fa fa-sign-in"></i> Login</a></li>
+						<li><a routerLink="user/registration"><i class="fa fa-user-plus"></i> Register</a></li>
+					</ng-template>
+
+					<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> Cart ($0.00)</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3 search-area">
+				<form class="navbar-form navbar-left" role="search" action="search-result.php" method="get">
+					<input type="hidden" name="_csrf" value="3fd694a7115ef8d4a34292ab73d08ec8">
+					<div class="form-group">
+						<input type="text" class="form-control search-top" placeholder="Search Product" name="search_text">
+					</div>
+					<button type="submit" class="btn btn-danger">Search</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
